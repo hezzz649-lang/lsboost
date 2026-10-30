@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google-site-verification" content="l6YFs_rUD9hZ_CGmZPGoaWDbJ2gojefYLFzkjVmH51s" />
+<meta name="description" content="LS Boost — прокачка GTA Online: деньги, ранги, разблокировки и бизнесы. Отслеживание заказа и поддержка.">
+<title>LS Boost — прокачка GTA Online</title>
+<style>
+:root{--bg:#f6f5f1;--surface:#fff;--text:#16161a;--muted:#62626b;--line:#e2e0d8;--accent:#e8590c;--accent-text:#fff;--green:#1f9d55;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0f12;--surface:#181a1f;--text:#f1f1ee;--muted:#9a9ba3;--line:#2a2c33;--accent:#ff7a2f;--accent-text:#111;--green:#3ddc84}}
+:root[data-theme="dark"]{--bg:#0e0f12;--surface:#181a1f;--text:#f1f1ee;--muted:#9a9ba3;--line:#2a2c33;--accent:#ff7a2f;--accent-text:#111;--green:#3ddc84}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+.logo{font-weight:900;font-size:20px;letter-spacing:-.5px}.logo b{color:var(--accent)}
+.cartbtn{background:var(--accent);color:var(--accent-text);border:0;border-radius:999px;padding:9px 16px;font-weight:700;font-size:15px;cursor:pointer}
+main{max-width:880px;margin:0 auto;padding:0 16px 64px}
+.hero{padding:40px 0 24px}
+.hero h1{font-size:clamp(30px,8vw,52px);line-height:1.05;margin:0 0 12px;letter-spacing:-1.5px}
+.hero h1 span{color:var(--accent)}
+.hero p{color:var(--muted);max-width:520px;margin:0 0 20px}
+.cta{display:inline-block;background:var(--accent);color:var(--accent-text);padding:13px 22px;border-radius:12px;font-weight:700;text-decoration:none}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0}
+.stats div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+.stats b{display:block;font-size:22px;color:var(--accent)}.stats small{color:var(--muted)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 0 14px}
+.tab{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:8px 16px;font-size:15px;cursor:pointer}
+.tab.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.card .ic{font-size:30px}.card h3{margin:0;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px;flex:1}
+.badge{align-self:flex-start;font-size:12px;font-weight:700;background:var(--green);color:#fff;border-radius:6px;padding:2px 8px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.price{font-size:22px;font-weight:800}
+.add{background:var(--text);color:var(--bg);border:0;border-radius:10px;padding:9px 14px;font-weight:700;cursor:pointer}
+h2{font-size:26px;margin:44px 0 14px;letter-spacing:-.5px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;counter-reset:s}
+.steps div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;counter-increment:s}
+.steps div::before{content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-text);font-weight:800;margin-bottom:8px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:8px}
+summary{font-weight:600;cursor:pointer}details p{color:var(--muted);margin:8px 0 0}
+footer{border-top:1px solid var(--line);padding:20px 16px;color:var(--muted);font-size:13px;text-align:center;max-width:880px;margin:0 auto}
+#drawer{position:fixed;inset:0;z-index:20;display:none;background:rgba(0,0,0,.5)}
+#drawer.open{display:block}
+.panel{position:absolute;right:0;top:0;bottom:0;width:min(400px,100%);background:var(--bg);padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px}
+.panel h3{margin:0;display:flex;justify-content:space-between;align-items:center}
+.x{background:none;border:0;color:var(--text);font-size:24px;cursor:pointer}
+#items{flex:1;overflow-y:auto}
+.it{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.it button{background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;width:28px;height:28px;cursor:pointer}
+input,select{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);font:inherit}
+.lb{font-size:12px;color:var(--muted);margin-bottom:-6px}
+.total{display:flex;justify-content:space-between;font-size:20px;font-weight:800}
+.msg{color:var(--green);font-weight:600;font-size:14px;min-height:20px}
+.tl{color:var(--text);text-decoration:none;font-size:14px;font-weight:600}
+.trk{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.trow{display:flex;gap:8px}.trow input{flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.chip{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:999px;padding:4px 12px;font-size:13px;cursor:pointer}
+.ord{margin-top:12px}.ord small{color:var(--muted)}
+.tline{list-style:none;margin:14px 0 0;padding:0}
+.tline li{position:relative;padding:0 0 18px 30px;color:var(--muted)}
+.tline li::before{content:"";position:absolute;left:0;top:2px;width:16px;height:16px;border-radius:50%;border:2px solid var(--line);background:var(--surface)}
+.tline li::after{content:"";position:absolute;left:7px;top:20px;bottom:0;width:2px;background:var(--line)}
+.tline li:last-child::after{display:none}
+.tline li.done,.tline li.cur{color:var(--text)}
+.tline li.done::before{background:var(--green);border-color:var(--green)}
+.tline li.cur::before{border-color:var(--accent);background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 25%,transparent)}
+.tline small{display:block;color:var(--muted);font-weight:400}
+.note{font-size:12px;color:var(--muted);margin-top:8px}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:15;background:var(--accent);color:var(--accent-text);border:0;border-radius:999px;padding:13px 18px;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+#cpanel{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:21;width:min(360px,calc(100% - 24px));height:min(520px,70vh);background:var(--bg);border:1px solid var(--line);border-radius:16px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.35)}
+#cpanel.open{display:flex}
+.chd{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line);font-weight:700}
+.chd small{display:block;color:var(--green);font-weight:500}
+#cmsgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.bub{max-width:82%;padding:8px 12px;border-radius:14px;font-size:14px;background:var(--surface);border:1px solid var(--line);align-self:flex-start}
+.bub.u{align-self:flex-end;background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.bub small{display:block;font-size:11px;opacity:.6;margin-top:2px}
+.cin{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}.cin input{flex:1}
+.guar{background:var(--surface);border:1px solid var(--green);border-radius:16px;padding:18px}
+.guar h3{margin:0 0 8px;color:var(--green)}.guar ol{margin:8px 0 14px;padding-left:20px}.guar li{margin-bottom:4px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">LS<b>Boost</b></div>
+  <div style="display:flex;gap:14px;align-items:center"><a class="tl" href="#track">Мой заказ</a><button class="cartbtn" id="open">🛒 Корзина · <span id="cnt">0</span></button></div>
+</header>
+<main>
+  <section class="hero">
+    <h1>Прокачка <span>GTA Online</span> без гринда</h1>
+    <p>Деньги, ранги, разблокировки и бизнесы. Играйте, а не фармите — мы сделаем рутину за вас.</p>
+    <a class="cta" href="#shop">Выбрать услугу</a>
+  </section>
+  <div class="stats">
+    <div><b>4 200+</b><small>заказов</small></div>
+    <div><b>15 мин</b><small>старт</small></div>
+    <div><b>24/7</b><small>поддержка</small></div>
+  </div>
+
+  <h2 id="shop">Каталог</h2>
+  <div class="tabs" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+
+  <h2 id="track">Отслеживание заказа</h2>
+  <div class="trk">
+    <div class="trow"><input id="tid" placeholder="Номер заказа, например LS-12345"><button class="add" id="tgo">Найти</button></div>
+    <div class="chips" id="mine"></div>
+    <div class="msg" id="tmsg"></div>
+    <div id="tres"></div>
+    <div class="note">Демо: статусы меняются автоматически по таймеру. В рабочей версии статус меняет менеджер.</div>
+  </div>
+
+  <h2>Как это работает</h2>
+  <div class="steps">
+    <div><b>Выберите пакет</b><br><small>Добавьте услугу в корзину</small></div>
+    <div><b>Оформите заказ</b><br><small>Укажите ник и способ связи</small></div>
+    <div><b>Согласуем детали</b><br><small>Менеджер напишет в течение 15 минут</small></div>
+    <div><b>Получите результат</b><br><small>Проверяете и подтверждаете</small></div>
+  </div>
+
+  <div class="guar">
+    <h3>🛡️ Гарантия возврата при бане</h3>
+    Если ваш аккаунт заблокировали после выполнения заказа, мы вернём полную сумму заказа. Что нужно сделать:
+    <ol>
+      <li>Напишите в поддержку — чат с менеджером внизу справа.</li>
+      <li>Отправьте скриншот бана.</li>
+      <li>Пришлите подтверждение покупки: номер заказа и чек.</li>
+      <li>Укажите все данные из заказа: ник в игре, юзернейм Telegram, платформу (Legacy или Enhanced) и устройство.</li>
+    </ol>
+    После проверки менеджер вернёт деньги в полном объёме.
+    <br><br><button class="cta" id="gopen" style="border:0;cursor:pointer">Открыть чат с поддержкой</button>
+  </div>
+
+  <h2>Вопросы</h2>
+  <details><summary>Нужен ли мой пароль?</summary><p>Мы рекомендуем сервисы без передачи пароля: через сессию в игре. Никогда не отправляйте данные от аккаунта Rockstar или Social Club третьим лицам.</p></details>
+  <details><summary>Что делать, если меня забанили?</summary><p>Rockstar запрещает покупку игровой валюты и услуг прокачки, поэтому риск бана существует. Если он случился, напишите в чат поддержки и приложите скриншот бана, подтверждение покупки и данные из заказа (ник, Telegram, платформа, устройство). Мы вернём полную сумму заказа.</p></details>
+  <details><summary>На каких платформах работаете?</summary><p>PC, PlayStation и Xbox. Укажите платформу при оформлении заказа.</p></details>
+</main>
+<footer>LS Boost — неофициальный сервис, не связан с Rockstar Games и Take-Two. Grand Theft Auto — торговая марка владельцев. Демо-сайт: оплата не подключена.</footer>
+
+<div id="drawer"><div class="panel">
+  <h3>Корзина <button class="x" id="close" aria-label="Закрыть">×</button></h3>
+  <div id="items"></div>
+  <label class="lb" for="nick">1. Ваш ник в игре</label>
+  <input id="nick" placeholder="Например, Franklin_LS" autocomplete="off">
+  <label class="lb" for="tg">2. Ваш юзернейм в Telegram</label>
+  <input id="tg" placeholder="@username" autocomplete="off" autocapitalize="off">
+  <label class="lb" for="ver">3. Ваша платформа</label>
+  <select id="ver"><option value="">Выберите версию игры</option><option>Legacy</option><option>Enhanced</option></select>
+  <label class="lb" for="dev">4. Ваше устройство</label>
+  <select id="dev"><option value="">Выберите устройство</option><option>ПК</option><option>PlayStation 4</option><option>PlayStation 5</option><option>Xbox One</option><option>Xbox Series X|S</option></select>
+  <div class="total"><span>Итого</span><span id="sum">0 ₽</span></div>
+  <button class="cta" id="buy" style="border:0;cursor:pointer;text-align:center">Оформить заказ</button>
+  <div class="msg" id="msg"></div>
+</div></div>
+
+<button class="fab" id="copen">💬 Поддержка</button>
+<div id="cpanel"><div class="chd"><div>Чат с менеджером<small>● онлайн</small></div><button class="x" id="cclose" aria-label="Закрыть">×</button></div><div id="cmsgs"></div><div class="cin"><input id="cin" placeholder="Сообщение…" autocomplete="off"><button class="add" id="csend">→</button></div></div>
+<script>
+const P=[
+{c:"Деньги",i:"💵",n:"100 000 000 $",d:"Стартовый пакет игровой валюты",p:100},
+{c:"Деньги",i:"💰",n:"300 000 000 $",d:"Средний пакет валюты",p:300,h:"Хит"},
+{c:"Деньги",i:"💸",n:"500 000 000 $",d:"Большой пакет валюты",p:500},
+{c:"Деньги",i:"🏦",n:"700 000 000 $",d:"Крупный пакет для бизнесов",p:700},
+{c:"Деньги",i:"💎",n:"1 000 000 000 $",d:"Миллиардный пакет",p:1000,h:"Макс"},
+{c:"Ранг",i:"⭐",n:"Ранг 500",d:"Быстрая прокачка уровня",p:100},
+{c:"Ранг",i:"🌟",n:"Ранг 700",d:"Прокачка до 700 уровня",p:250},
+{c:"Ранг",i:"🔥",n:"Ранг 1000",d:"Тысячный уровень",p:300,h:"Хит"},
+{c:"Ранг",i:"🚀",n:"Ранг 5000",d:"Для тех, кто хочет всё",p:450},
+{c:"Ранг",i:"👑",n:"Ранг 8000",d:"Максимальный уровень",p:700,h:"Макс"},
+{c:"Разблокировки",i:"🔫",n:"Все оружия и тюнинг",d:"Открываем весь арсенал",p:690},
+{c:"Разблокировки",i:"🏎️",n:"Транспорт и одежда",d:"Разблокировка гаража и гардероба",p:790},
+{c:"Разблокировки",i:"🎯",n:"Навыки на максимум",d:"Стрельба, вождение, выносливость",p:390},
+{c:"Бизнесы",i:"🏢",n:"Старт бизнеса",d:"Бункер, клуб или офис с оборудованием",p:1490},
+{c:"Бизнесы",i:"🛩️",n:"Ограбление Казино",d:"Прохождение с высоким процентом",p:990}
+];
+const cats=["Все",...new Set(P.map(x=>x.c))];
+let cur="Все",cart={};
+const $=s=>document.querySelector(s);
+const fmt=n=>n.toLocaleString("ru-RU")+" ₽";
+function tabs(){$("#tabs").innerHTML=cats.map(c=>`<button class="tab${c===cur?" on":""}" data-c="${c}">${c}</button>`).join("")}
+function grid(){$("#grid").innerHTML=P.map((x,k)=>({x,k})).filter(o=>cur==="Все"||o.x.c===cur).map(({x,k})=>`<div class="card"><div class="ic">${x.i}</div>${x.h?`<span class="badge">${x.h}</span>`:""}<h3>${x.n}</h3><p>${x.d}</p><div class="row"><span class="price">${fmt(x.p)}</span><button class="add" data-k="${k}">В корзину</button></div></div>`).join("")}
+function render(){
+ const ks=Object.keys(cart);let sum=0,cnt=0;
+ $("#items").innerHTML=ks.length?ks.map(k=>{const q=cart[k],x=P[k];sum+=x.p*q;cnt+=q;return `<div class="it"><span>${x.i} ${x.n}</span><span><button data-m="${k}">−</button> ${q} <button data-a="${k}">+</button></span></div>`}).join(""):"<p style='color:var(--muted)'>Корзина пуста</p>";
+ $("#sum").textContent=fmt(sum);$("#cnt").textContent=cnt;
+}
+$("#tabs").onclick=e=>{const c=e.target.dataset.c;if(c){cur=c;tabs();grid()}};
+$("#grid").onclick=e=>{const k=e.target.dataset.k;if(k!=null){cart[k]=(cart[k]||0)+1;render();$("#msg").textContent=""}};
+$("#items").onclick=e=>{const a=e.target.dataset.a,m=e.target.dataset.m;
+ if(a!=null)cart[a]++;if(m!=null&&--cart[m]<=0)delete cart[m];render()};
+$("#open").onclick=()=>$("#drawer").classList.add("open");
+$("#close").onclick=()=>$("#drawer").classList.remove("open");
+$("#drawer").onclick=e=>{if(e.target.id==="drawer")$("#drawer").classList.remove("open")};
+$("#buy").onclick=()=>{
+ if(!Object.keys(cart).length){$("#msg").textContent="Добавьте услугу в корзину";return}
+ const nick=$("#nick").value.trim(),tg=$("#tg").value.trim().replace(/^@/,""),ver=$("#ver").value,dev=$("#dev").value;
+ if(!nick||!tg||!ver||!dev){$("#msg").textContent="Заполните все четыре поля";return}
+ if(!/^[A-Za-z0-9_]{5,32}$/.test(tg)){$("#msg").textContent="Telegram: 5–32 символа, латиница, цифры и _";return}
+ if(ver==="Enhanced"&&/PlayStation 4|Xbox One/.test(dev)){$("#msg").textContent="Enhanced есть только на ПК, PS5 и Xbox Series";return}
+ const o={id:"LS-"+Math.floor(10000+Math.random()*90000),t:Date.now(),nick,tg:"@"+tg,ver,dev,list:Object.keys(cart).map(k=>P[k].n+" ×"+cart[k]).join(", "),sum:Object.keys(cart).reduce((a,k)=>a+P[k].p*cart[k],0)};
+ orders.unshift(o);save();cart={};render();shown=o.id;
+ $("#drawer").classList.remove("open");$("#tmsg").textContent="Заказ "+o.id+" принят. Сохраните номер.";
+ mine();track();$("#track").scrollIntoView();
+};
+const ST=["Заказ принят","Оплата подтверждена","Заказ в работе","Проверка результата","Выполнен"],DL=[0,20,60,120,200];
+let orders=[],shown=null;
+try{orders=JSON.parse(localStorage.getItem("lsb")||"[]")}catch(e){}
+const save=()=>{try{localStorage.setItem("lsb",JSON.stringify(orders))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const hm=t=>new Date(t).toLocaleTimeString("ru-RU",{hour:"2-digit",minute:"2-digit"});
+function stage(o){const s=(Date.now()-o.t)/1000;let k=0;DL.forEach((d,i)=>{if(s>=d)k=i});return k}
+function mine(){$("#mine").innerHTML=orders.map(o=>`<button class="chip" data-o="${esc(o.id)}">${esc(o.id)}</button>`).join("")}
+function track(){
+ const o=orders.find(x=>x.id===shown),el=$("#tres");
+ if(!o){el.innerHTML="";return}
+ const k=stage(o);
+ el.innerHTML=`<div class="ord"><b>${esc(o.id)}</b> · ${esc(o.nick)}<br><small>${[o.tg,o.ver,o.dev].filter(Boolean).map(esc).join(" · ")}</small><br><small>${esc(o.list)} — ${fmt(o.sum)}</small><ul class="tline">`+ST.map((s,i)=>`<li class="${i<k||k===4?"done":i===k?"cur":""}"><b>${s}</b>${i<=k?`<small>${hm(o.t+DL[i]*1000)}</small>`:""}</li>`).join("")+`</ul></div>`;
+}
+$("#tgo").onclick=()=>{
+ const v=$("#tid").value.trim().toUpperCase();
+ if(orders.some(x=>x.id===v)){shown=v;$("#tmsg").textContent="";track()}
+ else{shown=null;track();$("#tmsg").textContent="Заказ не найден (в демо видны заказы только с этого устройства)"}
+};
+$("#mine").onclick=e=>{const id=e.target.dataset.o;if(id){shown=id;$("#tid").value=id;$("#tmsg").textContent="";track()}};
+setInterval(track,5000);
+let chat=[];
+try{chat=JSON.parse(localStorage.getItem("lsc")||"[]")}catch(e){}
+const csave=()=>{try{localStorage.setItem("lsc",JSON.stringify(chat))}catch(e){}};
+function cr(){
+ const b=$("#cmsgs");
+ if(!chat.length)chat=[{w:"m",t:"Здравствуйте! Я менеджер LS Boost. Чем помочь? Если вас забанили, пришлите скриншот бана, подтверждение покупки и данные из заказа.",s:Date.now()}];
+ b.innerHTML=chat.map(m=>`<div class="bub ${m.w}">${esc(m.t)}<small>${hm(m.s)}</small></div>`).join("");
+ b.scrollTop=b.scrollHeight;
+}
+function csend(){
+ const i=$("#cin"),t=i.value.trim();if(!t)return;
+ chat.push({w:"u",t,s:Date.now()});i.value="";csave();cr();
+ setTimeout(()=>{chat.push({w:"m",t:"Спасибо, передал менеджеру. Ответим в течение 15 минут. (Демо-ответ.)",s:Date.now()});csave();cr()},1200);
+}
+$("#copen").onclick=()=>{$("#cpanel").classList.add("open");$("#copen").style.display="none";cr()};
+$("#cclose").onclick=()=>{$("#cpanel").classList.remove("open");$("#copen").style.display=""};
+$("#csend").onclick=csend;
+$("#cin").onkeydown=e=>{if(e.key==="Enter")csend()};
+$("#gopen").onclick=()=>$("#copen").click();
+mine();
+tabs();grid();render();
+</script>
+</body>
+</html>
